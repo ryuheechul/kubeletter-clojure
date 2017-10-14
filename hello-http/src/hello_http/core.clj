@@ -1,9 +1,11 @@
 (ns hello-http.core
   (:require [ring.adapter.jetty :as jetty]
             [hello-http.sch :as sch]
+            [hello-http.sh :as sh]
             ))
 
 (sch/start)
+(sh/test_sh)
 
 (defn handler [request]
   {:status 200
