@@ -1,0 +1,30 @@
+version: '2'
+services:
+  redis:
+    image: redis
+    volumes:
+      - ./tmp/docker/redis/data:/data
+  app:
+    image: clojure
+    volumes:
+      - ./kubeletter:/code
+    working_dir: /code
+    command: lein run
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    ports:
+      - "3000:3000"
+  ring:
+    image: clojure
+    volumes:
+      - ./hello-http:/code
+    working_dir: /code
+    command: lein run
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    ports:
+      - "5000:3000"
