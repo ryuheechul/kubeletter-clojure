@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [ring/ring-core "1.5.0"]
                  [ring/ring-jetty-adapter "1.5.0"]
+                 [im.chit/hara.io.scheduler "2.5.10"]
                  ]
   :main ^:skip-aot hello-http.core
   ;; :main hello-http.core
